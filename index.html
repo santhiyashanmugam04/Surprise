@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Favorite Person ❤️</title>
+<style>
+body {
+  text-align: center;
+  font-family: Arial;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  padding-top: 180px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+button {
+  background-color: #ff4d6d;
+  color: white;
+  padding: 10px 25px;   /* Reduced size */
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;      /* Smaller text */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  color: white;
+  font-size: 28px;
+}
+
+#hoverMsg {
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Helloo Sirr!! ❤️</h1>
+<p style="color:white;">I Built Something Special for you...</p>
+
+<div class="button-container">
+  <button onclick="openLove()">Click Me If You Love Me ❤️</button>
+
+  <button 
+    onmouseover="showHoverMsg()" 
+    onmouseout="hideHoverMsg()" 
+    onclick="warningMessage()">
+    Illanaa Ethaa Click Pannunga 😏
+  </button>
+</div>
+
+<div id="hoverMsg">No Button 😌❤️</div>
+
+<script>
+function openLove() {
+  window.location.href = "love.html";
+}
+
+function warningMessage() {
+  alert("⚠️ Sorry… Love dhaan sollanum 😌❤️");
+}
+
+function showHoverMsg() {
+  document.getElementById("hoverMsg").style.display = "block";
+}
+
+function hideHoverMsg() {
+  document.getElementById("hoverMsg").style.display = "none";
+}
+</script>
+
+</body>
+</html>
