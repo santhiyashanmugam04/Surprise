@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Buttu❤️</title>
+
 <style>
 body {
   text-align: center;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: linear-gradient(to right, #8ac1f5, #99ceff);
-  padding-top: 180px;
+  padding-top: 120px;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -16,12 +19,13 @@ body {
   justify-content: center;
   gap: 15px;
   margin-top: 25px;
+  flex-wrap: wrap; /* Mobile wrap support */
 }
 
 button {
   background-color: #ff4d6d;
   color: white;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -35,11 +39,24 @@ button:hover {
 
 h1 {
   color: white;
-  font-size: 28px;
+  font-size: 24px;
+  padding: 0 15px;
 }
 
 p {
   color: white;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+/* Slightly bigger text for laptop */
+@media (min-width: 768px) {
+  body {
+    padding-top: 180px;
+  }
+  h1 {
+    font-size: 28px;
+  }
 }
 
 /* Second button */
@@ -59,7 +76,7 @@ p {
     Click Me If You Love Me ❤️
   </button>
 
-  <button id="runBtn" onmouseover="moveButton()">
+  <button id="runBtn">
     Illanaa Ethaa Click Pannunga 😏
   </button>
 </div>
@@ -74,7 +91,6 @@ function openLove() {
 function moveButton() {
   var button = document.getElementById("runBtn");
 
-  // First time hover -> change to fixed
   if (isFirstMove) {
     button.style.position = "fixed";
     isFirstMove = false;
@@ -83,8 +99,8 @@ function moveButton() {
   var buttonWidth = button.offsetWidth;
   var buttonHeight = button.offsetHeight;
 
-  var maxX = window.innerWidth - buttonWidth - 20;
-  var maxY = window.innerHeight - buttonHeight - 20;
+  var maxX = window.innerWidth - buttonWidth - 10;
+  var maxY = window.innerHeight - buttonHeight - 10;
 
   var x = Math.random() * maxX;
   var y = Math.random() * maxY;
@@ -92,6 +108,15 @@ function moveButton() {
   button.style.left = x + "px";
   button.style.top = y + "px";
 }
+
+/* Desktop hover */
+document.getElementById("runBtn").addEventListener("mouseover", moveButton);
+
+/* Mobile touch support */
+document.getElementById("runBtn").addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  moveButton();
+});
 </script>
 
 </body>
