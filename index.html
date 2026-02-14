@@ -12,6 +12,9 @@ body {
 }
 
 .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
   margin-top: 25px;
 }
 
@@ -39,9 +42,9 @@ p {
   color: white;
 }
 
-/* Second button special style */
+/* Second button */
 #runBtn {
-  position: fixed;
+  position: relative;
 }
 </style>
 </head>
@@ -62,12 +65,20 @@ p {
 </div>
 
 <script>
+let isFirstMove = true;
+
 function openLove() {
   window.location.href = "love.html";
 }
 
 function moveButton() {
   var button = document.getElementById("runBtn");
+
+  // First time hover -> change to fixed
+  if (isFirstMove) {
+    button.style.position = "fixed";
+    isFirstMove = false;
+  }
 
   var buttonWidth = button.offsetWidth;
   var buttonHeight = button.offsetHeight;
