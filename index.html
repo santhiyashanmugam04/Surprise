@@ -12,8 +12,7 @@ body {
 }
 
 .button-container {
-  position: relative;
-  height: 200px;
+  margin-top: 25px;
 }
 
 button {
@@ -25,15 +24,6 @@ button {
   font-size: 14px;
   cursor: pointer;
   transition: 0.3s;
-  position: absolute;
-}
-
-#loveBtn {
-  position: relative;
-}
-
-#runBtn {
-  left: 55%;
 }
 
 button:hover {
@@ -48,6 +38,11 @@ h1 {
 p {
   color: white;
 }
+
+/* Second button special style */
+#runBtn {
+  position: fixed;
+}
 </style>
 </head>
 
@@ -57,7 +52,7 @@ p {
 <p>I Built Something Special for you...</p>
 
 <div class="button-container">
-  <button id="loveBtn" onclick="openLove()" style="left:40%;">
+  <button onclick="openLove()">
     Click Me If You Love Me ❤️
   </button>
 
@@ -73,8 +68,15 @@ function openLove() {
 
 function moveButton() {
   var button = document.getElementById("runBtn");
-  var x = Math.random() * (window.innerWidth - 150);
-  var y = Math.random() * (window.innerHeight - 100);
+
+  var buttonWidth = button.offsetWidth;
+  var buttonHeight = button.offsetHeight;
+
+  var maxX = window.innerWidth - buttonWidth - 20;
+  var maxY = window.innerHeight - buttonHeight - 20;
+
+  var x = Math.random() * maxX;
+  var y = Math.random() * maxY;
 
   button.style.left = x + "px";
   button.style.top = y + "px";
