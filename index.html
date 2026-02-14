@@ -8,24 +8,32 @@ body {
   font-family: Arial;
   background: linear-gradient(to right, #8ac1f5, #99ceff);
   padding-top: 180px;
+  overflow: hidden;
 }
 
 .button-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
+  position: relative;
+  height: 200px;
 }
 
 button {
   background-color: #ff4d6d;
   color: white;
-  padding: 10px 25px;   /* Reduced size */
+  padding: 10px 25px;
   border: none;
   border-radius: 8px;
-  font-size: 14px;      /* Smaller text */
+  font-size: 14px;
   cursor: pointer;
   transition: 0.3s;
+  position: absolute;
+}
+
+#loveBtn {
+  position: relative;
+}
+
+#runBtn {
+  left: 55%;
 }
 
 button:hover {
@@ -37,11 +45,8 @@ h1 {
   font-size: 28px;
 }
 
-#hoverMsg {
-  margin-top: 15px;
+p {
   color: white;
-  font-weight: bold;
-  display: none;
 }
 </style>
 </head>
@@ -49,36 +54,30 @@ h1 {
 <body>
 
 <h1>Helloo Sirr!! ❤️</h1>
-<p style="color:white;">I Built Something Special for you...</p>
+<p>I Built Something Special for you...</p>
 
 <div class="button-container">
-  <button onclick="openLove()">Click Me If You Love Me ❤️</button>
+  <button id="loveBtn" onclick="openLove()" style="left:40%;">
+    Click Me If You Love Me ❤️
+  </button>
 
-  <button 
-    onmouseover="showHoverMsg()" 
-    onmouseout="hideHoverMsg()" 
-    onclick="warningMessage()">
+  <button id="runBtn" onmouseover="moveButton()">
     Illanaa Ethaa Click Pannunga 😏
   </button>
 </div>
-
-<div id="hoverMsg">Vendaam </div>
 
 <script>
 function openLove() {
   window.location.href = "love.html";
 }
 
-function warningMessage() {
-  alert("⚠️ Sorry… Page not found 😌❤️");
-}
+function moveButton() {
+  var button = document.getElementById("runBtn");
+  var x = Math.random() * (window.innerWidth - 150);
+  var y = Math.random() * (window.innerHeight - 100);
 
-function showHoverMsg() {
-  document.getElementById("hoverMsg").style.display = "block";
-}
-
-function hideHoverMsg() {
-  document.getElementById("hoverMsg").style.display = "none";
+  button.style.left = x + "px";
+  button.style.top = y + "px";
 }
 </script>
 
